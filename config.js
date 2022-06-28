@@ -1,6 +1,6 @@
 var config = {
     style: 'mapbox://styles/kuangkeng/cl3i2x6wd005m14l4eb3ur983',
-    accessToken: 'pk.eyJ1Ijoia3VhbmdrZW5nIiwiYSI6ImNqeWcwcDN4NjAxcHEzbm5nNXhkNzUwb2sifQ.CE1Z60qZF-AdOPW0FskZkw',
+    accessToken: 'pk.eyJ1Ijoia3VhbmdrZW5nIiwiYSI6ImNsM2kyZjU4cjBsczYzam54MW1scm0xMzAifQ.2ilwuyf9futhdJCeK2_0tg',
     showMarkers: false,
     markerColor: '#3FB1CE',
     //projection: 'equirectangular',
@@ -11,7 +11,7 @@ var config = {
     use3dTerrain: false, //set true for enabling 3D maps.
     chapters: [
         {
-            id: 'slug-style-id',
+            id: 'chapter1',
             alignment: 'center',
             hidden: false,
             image: 'images/placeholder-800x600.png',
@@ -29,7 +29,7 @@ var config = {
             onChapterExit: []
         },
         {
-            id: 'second-identifier',
+            id: 'chapter2',
             alignment: 'center',
             hidden: false,
             // image: 'images/placeholder-800x600.png',
@@ -48,7 +48,6 @@ var config = {
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
-            callback: '',
             onChapterEnter: [
                 {
                     layer: 'kurdistan-line',
@@ -75,7 +74,7 @@ var config = {
             ]
         },
         {
-            id: 'third-identifier',
+            id: 'chapter3',
             alignment: 'center',
             hidden: false,
             // image: 'images/placeholder-800x600.png',
@@ -88,7 +87,6 @@ var config = {
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
-            callback: '',
             onChapterEnter: [
                 {
                     layer: 'kurdistan-flaring',
@@ -100,11 +98,6 @@ var config = {
                     opacity: 0,
                     duration: 500
                 },
-                {
-                    layer: 'kurdistan-line',
-                    opacity: 1,
-                    duration: 500
-                }
             ],
             onChapterExit: [
                 {
@@ -117,6 +110,145 @@ var config = {
                     opacity: .5,
                     duration: 500
                 },
+            ]
+        },
+        {
+            id: 'chapter4',
+            alignment: 'center',
+            hidden: false,
+            // image: 'images/placeholder-800x600.png',
+            description: 'Text box 4',
+            location: {
+                center: [43.64343, 33.40104],
+                zoom: 5.28,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: 'show_timeseries',
+            onChapterEnter: [
+                {
+                    layer: 'kurdistan-flaring',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'iraq-flaring2-month-1',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'iraq-flaring2-month-2',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'iraq-flaring2-month-3',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'iraq-flaring2-month-4',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'kurdistan-fill',
+                    opacity: 0,
+                    duration: 500
+                },
+            ],
+            onChapterExit: [
+                {
+                    layer: 'kurdistan-flaring',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'iraq-flaring2-month-1',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'iraq-flaring2-month-2',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'iraq-flaring2-month-3',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'iraq-flaring2-month-4',
+                    opacity: 0,
+                    duration: 500
+                },
+            ]
+        },
+        {
+            id: 'chapter5',
+            alignment: 'center',
+            hidden: false,
+            // image: 'images/placeholder-800x600.png',
+            description: 'Text box 5',
+            location: {
+                center: [43.64343, 33.40104],
+                zoom: 5.28,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: 'hide_timeseries',
+            onChapterEnter: [
+                {
+                    layer: 'iraq-flaring2-month-1',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'iraq-flaring2-month-2',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'iraq-flaring2-month-3',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'iraq-flaring2-month-4',
+                    opacity: 0,
+                    duration: 500
+                },
+
+            ],
+            onChapterExit: [
+
+            ]
+        },
+        {
+            id: 'chapter6',
+            alignment: 'center',
+            hidden: false,
+            // image: 'images/placeholder-800x600.png',
+            description: 'Text box 6',
+            location: {
+                center: [43.64343, 33.40104],
+                zoom: 5.28,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            onChapterEnter: [
+
+
+            ],
+            onChapterExit: [
+
             ]
         },
         // {
@@ -140,3 +272,46 @@ var config = {
         // }
     ]
 };
+dates = ['2018-10','2018-11','2018-12','2019-01','2019-02','2019-03','2019-04','2019-05','2019-06','2019-07'];
+allmonths = ['2018-10','2018-11','2018-12','2019-01','2019-02','2019-03','2019-04','2019-05','2019-06','2019-07','2019-08','2019-09','2019-10','2019-11','2019-12','2020-01','2020-02','2020-03','2020-04','2020-05','2020-06','2020-07','2020-08','2020-09','2020-10','2020-11','2020-12','2021-01','2021-02','2021-03','2021-04','2021-05','2021-06','2021-07','2021-08','2021-09','2021-10','2021-11','2021-12','2022-01','2022-02','2022-03','2022-04'];
+months1 = ['2018-10','2018-11','2018-12','2019-01','2019-02','2019-03','2019-04','2019-05','2019-06','2019-07'];
+months2 = ['2019-07','2019-08','2019-09','2019-10','2019-11','2019-12','2020-01','2020-02','2020-03','2020-04','2020-05'];
+months3 = ['2020-05','2020-06','2020-07','2020-08','2020-09','2020-10','2020-11','2020-12','2021-01','2021-02','2021-03','2021-04','2021-05'];
+months4 = ['2021-05','2021-06','2021-07','2021-08','2021-09','2021-10','2021-11','2021-12','2022-01','2022-02','2022-03','2022-04'];
+
+function show_timeseries(){
+    console.log("show timeseries");
+    document.getElementById("timeseries_btn").style.display = 'block';
+}
+
+function hide_timeseries(){
+    console.log("hide timeseries");
+    document.getElementById("timeseries_btn").style.display = 'none';
+}
+
+function start_timeseries() {
+    console.log("start timeseries");
+    var counter = 0;
+    var a = setInterval(function(){
+        filter(counter)
+        counter++;
+        if(counter === allmonths.length) {
+            clearInterval(a);
+            document.getElementById("timeseries_btn").innerHTML = 'Play again';
+        }
+    }, 350);
+}
+
+function filter(counter){
+    map.setFilter('iraq-flaring2-month-1', ['==', 'Flaring_time_str', allmonths[counter]]);
+    map.setFilter('iraq-flaring2-month-2', ['==', 'Flaring_time_str', allmonths[counter]]);
+    map.setFilter('iraq-flaring2-month-3', ['==', 'Flaring_time_str', allmonths[counter]]);
+    map.setFilter('iraq-flaring2-month-4', ['==', 'Flaring_time_str', allmonths[counter]]);
+    console.log(allmonths[counter]);
+    document.getElementById("timeseries_btn").innerHTML = allmonths[counter];
+}
+
+document.getElementById("timeseries_btn").addEventListener("click",start_timeseries );
+
+
+

@@ -108,6 +108,17 @@
             width: 100%;
         }
 
+        #timeseries_btn {
+            position: fixed;
+            bottom:10%;
+            left:45%;
+            color:#fafafa;
+            background-color: #444;
+            padding:10px;
+            display: none;
+            opacity: 0.9;
+        }
+
         @media (max-width: 750px) {
             .centered, .lefty, .righty, .fully {
                 width: 90vw;
@@ -128,6 +139,7 @@
 <div id="map"></div>
 <div id="mapInset"></div>
 <div id="story"></div>
+<div id="timeseries_btn">Play timeseries</div>
 
 <script src="./config.js"></script>
 <script>
