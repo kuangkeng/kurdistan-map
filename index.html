@@ -92,23 +92,23 @@
         .step {
             padding-bottom: 50vh;
             /* margin-bottom: 10vh; */
-            opacity: 0.25;
+            opacity: 0.2;
         }
         .step.active {
             opacity: 0.9;
         }
 
         .step div {
-            padding:  25px 50px;
-            line-height: 25px;
-            font-size: 13px;
+            padding:  1px 18px;
+            line-height: 22px;
+            font-size: 16px;
         }
 
         .step img {
             width: 100%;
         }
 
-        #timeseries_btn {
+        .timeseries_btn {
             position: fixed;
             bottom:10%;
             left:45%;
@@ -117,6 +117,10 @@
             padding:10px;
             display: none;
             opacity: 0.9;
+        }
+
+        #chapter0 {
+            padding-top: 70vh;
         }
 
         @media (max-width: 750px) {
@@ -139,7 +143,8 @@
 <div id="map"></div>
 <div id="mapInset"></div>
 <div id="story"></div>
-<div id="timeseries_btn">Play timeseries</div>
+<div class="timeseries_btn" id="timeseries_btn_iraq">Play again</div>
+<div class="timeseries_btn" id="timeseries_btn_kurd">Play again</div>
 
 <script src="./config.js"></script>
 <script>
@@ -468,8 +473,6 @@ function addInsetLayer(bounds) {
 function updateInsetLayer(bounds) {
     insetMap.getSource('boundsSource').setData(bounds);
 }
-
-
 
 // setup resize event
 window.addEventListener('resize', scroller.resize);
