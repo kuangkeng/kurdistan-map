@@ -1,12 +1,12 @@
 var config = {
-    style: 'mapbox://styles/kuangkeng/cl3i2x6wd005m14l4eb3ur983',
+    style: 'mapbox://styles/kuangkeng/cl74iooua002z14ny861ik79u',
     accessToken: 'pk.eyJ1Ijoia3VhbmdrZW5nIiwiYSI6ImNsNXVibXhrNzBlNzUzamxhaHlrbHJsemcifQ.pi3jb5qDip_6YHTMDxDO5Q',
     showMarkers: false,
     markerColor: '#3FB1CE',
-    //projection: 'equirectangular',
+    projection: 'equirectangular',
     //Read more about available projections here
     //https://docs.mapbox.com/mapbox-gl-js/example/projections/
-    inset: true,
+    inset: false,
     theme: 'dark',
     use3dTerrain: false, //set true for enabling 3D maps.
     chapters: [
@@ -85,7 +85,7 @@ var config = {
             id: 'chapter3',
             alignment: 'center',
             hidden: false,
-            description: 'Russia burns the most amount of natural gas in the world, flaring off 24.88 billion cubic metres per year as of 2020 according to <a href="https://thedocs.worldbank.org/en/doc/1f7221545bf1b7c89b850dd85cb409b0-0400072021/original/WB-GGFR-Report-Design-05a.pdf" target="_blank">World Bank data</a>, with Iraq following closely behind with 17.37 billion cubic metres.',
+            description: 'With residents suffering deteriorating health, the Kurdistan RegionalGovernment (KRG) issued oil and gas companies a directive to phase-out all flaring by 2023, giving them 18 months to comply.',
             location: {
                 center: [44.40172, 35.53583],
                 zoom: 6.57,
@@ -110,19 +110,7 @@ var config = {
             id: 'chapter4',
             alignment: 'center',
             hidden: false,
-            description: 'But according to our analysis, Iraq’s population on average lives much closer to flaring sites than does Russia’s.',
-        },
-        {
-            id: 'chapter5',
-            alignment: 'center',
-            hidden: false,
-            description: 'Since October 2018, we found that the number of people in Iraq living within a 1km radius of more than 10 flaring events was 1.19 million. In all of Russia, only 275,000 experienced the same level of exposure across the same time period.',
-        },
-        {
-            id: 'chapter6',
-            alignment: 'center',
-            hidden: false,
-            description: 'Russia’s oil refineries are often in remote locations, spread out across arctic tundras. In Iraq and Kurdistan, however, major cities and towns are more commonly situated close to the flares ⁠— leaving their populations more at risk of exposure.',
+            description: 'Our investigation used satellite data from 2018 onwards to measure the progress companies had made at the halfway mark, nine months after the government directed them to stop flaring.',
             location: {
                 center: [44.40172, 35.53583],
                 zoom: 6.57,
@@ -144,10 +132,10 @@ var config = {
             ]
         },
         {
-            id: 'chapter7',
+            id: 'chapter5',
             alignment: 'center',
             hidden: false,
-            description: 'With residents suffering deteriorating health, the Kurdistan Autonomous Government (KRG) issued oil and gas companies a directive to phase-out all flaring by 2023, giving them 18 months to comply.',
+            description: 'We tracked changes in real-time satellite imagery to gather the locations and times of hot pixel detections, to identify flaring hotspots from 2018 to April 2022. We calculated the total incidents of flaring to identify the level of flaring in the Kurdistan region throughout the ‘phase out’ period.',
             location: {
                 center: [44.40172, 35.53583],
                 zoom: 6.57,
@@ -170,10 +158,10 @@ var config = {
             ],
         },
         {
-            id: 'chapter8',
+            id: 'chapter6',
             alignment: 'center',
             hidden: false,
-            description: 'Our investigation used satellite data from 2018 onwards to measure the progress companies had made at the halfway mark, nine months after the government directed them to stop flaring.',
+            description: 'Although the winter months showed a drop off in flaring activity, historical data reveals flaring levels have not decreased relative to previous years (2018-19).',
             location: {
                 center: [44.40172, 35.53583],
                 zoom: 6.57,
@@ -183,20 +171,13 @@ var config = {
             mapAnimation: 'flyTo',
             callback: 'start_timeseries_kurd',
             onChapterEnter: [],
-            // onChapterExit: [
-            //     {
-            //         layer: 'kurdistan-flaring',
-            //         opacity: 1,
-            //         duration: 500
-            //     },
-            // ]
         },
         {
-            id: 'chapter9',
+            id: 'chapter7',
             alignment: 'center',
             hidden: false,
             image: 'images/placeholder-800x600.png',
-            description: 'Although the winter months showed a drop off in flaring activity, historical data reveals flaring levels have not decreased relative to previous years (2018-19). Our findings project flaring will increase, not decrease, relative to 2021 — in violation of the commitment made by the KRG, which did not respond to a request for comment for this article.',
+            description: 'As of May 2022, flaring levels have begun to creep back up again.Our findings project that flaring will increase, not decrease, relative to 2021 — in violation of the commitment made by the KRG.',
             location: {
                 center: [44.40172, 35.53583],
                 zoom: 6.57,
@@ -208,156 +189,12 @@ var config = {
             onChapterEnter: [],
         },
         {
-            id: 'chapter10',
-            alignment: 'center',
-            hidden: false,
-            description: 'Kurdistan’s flaring directive deadline, which would decrease the risk of respiratory illness and premature births in the region, is fast approaching as 2023 nears.',
-        },
-        {
-            id: 'chapter11',
+            id: 'chapter8',
             alignment: 'center',
             hidden: false,
             description: 'Companies serious about phasing out flaring would need to implement infrastructure in order to capture the gas or sell it, reducing the amount they burn. But our findings show the reverse is happening.',
         },
 
-    
-
-        // {
-        //     id: 'chapter12',
-        //     alignment: 'center',
-        //     hidden: false,
-        //     description: 'Text box 4',
-        //     location: {
-        //         center: [43.64343, 33.40104],
-        //         zoom: 5.28,
-        //         pitch: 0.00,
-        //         bearing: 0.00
-        //     },
-        //     mapAnimation: 'flyTo',
-        //     rotateAnimation: false,
-        //     callback: 'show_timeseries',
-        //     onChapterEnter: [
-        //         {
-        //             layer: 'kurdistan-flaring',
-        //             opacity: 0,
-        //             duration: 500
-        //         },
-        //         {
-        //             layer: 'iraq-flaring2-month-1',
-        //             opacity: 1,
-        //             duration: 500
-        //         },
-        //         {
-        //             layer: 'iraq-flaring2-month-2',
-        //             opacity: 1,
-        //             duration: 500
-        //         },
-        //         {
-        //             layer: 'iraq-flaring2-month-3',
-        //             opacity: 1,
-        //             duration: 500
-        //         },
-        //         {
-        //             layer: 'iraq-flaring2-month-4',
-        //             opacity: 1,
-        //             duration: 500
-        //         },
-        //         {
-        //             layer: 'kurdistan-fill',
-        //             opacity: 0,
-        //             duration: 500
-        //         },
-        //     ],
-        //     onChapterExit: [
-        //         {
-        //             layer: 'kurdistan-flaring',
-        //             opacity: 1,
-        //             duration: 500
-        //         },
-        //         {
-        //             layer: 'iraq-flaring2-month-1',
-        //             opacity: 0,
-        //             duration: 500
-        //         },
-        //         {
-        //             layer: 'iraq-flaring2-month-2',
-        //             opacity: 0,
-        //             duration: 500
-        //         },
-        //         {
-        //             layer: 'iraq-flaring2-month-3',
-        //             opacity: 0,
-        //             duration: 500
-        //         },
-        //         {
-        //             layer: 'iraq-flaring2-month-4',
-        //             opacity: 0,
-        //             duration: 500
-        //         },
-        //     ]
-        // },
-        // {
-        //     id: 'chapter13',
-        //     alignment: 'center',
-        //     hidden: false,
-        //     description: 'Text box 5',
-        //     location: {
-        //         center: [43.64343, 33.40104],
-        //         zoom: 5.28,
-        //         pitch: 0.00,
-        //         bearing: 0.00
-        //     },
-        //     mapAnimation: 'flyTo',
-        //     rotateAnimation: false,
-        //     callback: 'hide_timeseries',
-        //     onChapterEnter: [
-        //         {
-        //             layer: 'iraq-flaring2-month-1',
-        //             opacity: 0,
-        //             duration: 500
-        //         },
-        //         {
-        //             layer: 'iraq-flaring2-month-2',
-        //             opacity: 0,
-        //             duration: 500
-        //         },
-        //         {
-        //             layer: 'iraq-flaring2-month-3',
-        //             opacity: 0,
-        //             duration: 500
-        //         },
-        //         {
-        //             layer: 'iraq-flaring2-month-4',
-        //             opacity: 0,
-        //             duration: 500
-        //         },
-
-        //     ],
-        //     onChapterExit: [
-
-        //     ]
-        // },
-        // {
-        //     id: 'chapter14',
-        //     alignment: 'center',
-        //     hidden: false,
-        //     description: 'Text box 6',
-        //     location: {
-        //         center: [43.64343, 33.40104],
-        //         zoom: 5.28,
-        //         pitch: 0.00,
-        //         bearing: 0.00
-        //     },
-        //     mapAnimation: 'flyTo',
-        //     rotateAnimation: false,
-        //     onChapterEnter: [
-
-
-        //     ],
-        //     onChapterExit: [
-
-        //     ]
-        // },
     ]
 };
 
