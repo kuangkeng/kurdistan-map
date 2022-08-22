@@ -1,9 +1,11 @@
 var config = {
-    style: 'mapbox://styles/kuangkeng/cl74iooua002z14ny861ik79u',
+    style: 'mapbox://styles/kuangkeng/cl3i2x6wd005m14l4eb3ur983',
+    // style: 'mapbox://styles/kuangkeng/cl74iooua002z14ny861ik79u',
     accessToken: 'pk.eyJ1Ijoia3VhbmdrZW5nIiwiYSI6ImNsNXVibXhrNzBlNzUzamxhaHlrbHJsemcifQ.pi3jb5qDip_6YHTMDxDO5Q',
     showMarkers: false,
     markerColor: '#3FB1CE',
-    projection: 'equirectangular',
+    projection: 'mercator',
+    // projection: 'equirectangular',
     //Read more about available projections here
     //https://docs.mapbox.com/mapbox-gl-js/example/projections/
     inset: false,
@@ -204,7 +206,7 @@ months2 = ['2019-07','2019-08','2019-09','2019-10','2019-11','2019-12','2020-01'
 months3 = ['2020-05','2020-06','2020-07','2020-08','2020-09','2020-10','2020-11','2020-12','2021-01','2021-02','2021-03','2021-04','2021-05'];
 months4 = ['2021-05','2021-06','2021-07','2021-08','2021-09','2021-10','2021-11','2021-12','2022-01','2022-02','2022-03','2022-04'];
 var timeseries_kurd;
-var timeseries_iraq;
+// var timeseries_iraq;
 
 // function show_timeseries(){
 //     document.getElementById("timeseries_btn").style.display = 'block';
@@ -212,11 +214,11 @@ var timeseries_iraq;
 
 function hide_timeseries_btn(){
     document.getElementById("timeseries_btn_kurd").style.display = 'none';
-    document.getElementById("timeseries_btn_iraq").style.display = 'none';
+    // document.getElementById("timeseries_btn_iraq").style.display = 'none';
     document.getElementById("timeseries_btn_kurd").innerHTML = '';
-    document.getElementById("timeseries_btn_iraq").innerHTML = '';
+    // document.getElementById("timeseries_btn_iraq").innerHTML = '';
     clearInterval(timeseries_kurd);
-    clearInterval(timeseries_iraq);
+    // clearInterval(timeseries_iraq);
     map.setFilter('kurdistan-flaring',null);
     map.setFilter('iraq-flaring2-month-1', null);
     map.setFilter('iraq-flaring2-month-2', null);
@@ -237,17 +239,17 @@ function start_timeseries_kurd() {
     }, 350);
 }
 
-function start_timeseries_iraq() {
-    var counter = 0;
-    timeseries_iraq = setInterval(function(){
-        filter(counter)
-        counter++;
-        if(counter === allmonths.length) {
-            clearInterval(timeseries_iraq);
-            document.getElementById("timeseries_btn").innerHTML = 'Play again';
-        }
-    }, 350);
-}
+// function start_timeseries_iraq() {
+//     var counter = 0;
+//     timeseries_iraq = setInterval(function(){
+//         filter(counter)
+//         counter++;
+//         if(counter === allmonths.length) {
+//             clearInterval(timeseries_iraq);
+//             document.getElementById("timeseries_btn").innerHTML = 'Play again';
+//         }
+//     }, 350);
+// }
 
 function filter_kurdistan(counter){
     map.setFilter('kurdistan-flaring', ['==', 'Flaring_time_str', allmonths[counter]]);
@@ -259,11 +261,11 @@ function filter(counter){
     map.setFilter('iraq-flaring2-month-2', ['==', 'Flaring_time_str', allmonths[counter]]);
     map.setFilter('iraq-flaring2-month-3', ['==', 'Flaring_time_str', allmonths[counter]]);
     map.setFilter('iraq-flaring2-month-4', ['==', 'Flaring_time_str', allmonths[counter]]);
-    document.getElementsById("timeseries_btn_iraq").innerHTML = allmonths[counter];
+    // document.getElementsById("timeseries_btn_iraq").innerHTML = allmonths[counter];
 }
 
 document.getElementById("timeseries_btn_kurd").addEventListener("click",start_timeseries_kurd );
-document.getElementById("timeseries_btn_iraq").addEventListener("click",start_timeseries_iraq );
+// document.getElementById("timeseries_btn_iraq").addEventListener("click",start_timeseries_iraq );
 
 
 
