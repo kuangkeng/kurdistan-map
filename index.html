@@ -87,10 +87,10 @@
         }
         .dark {
             color: #fafafa;
-            background-color: #444;
+            background-color: #666;
         }
         .step {
-            padding-bottom: 50vh;
+            padding-bottom: 60vh;
             /* margin-bottom: 10vh; */
             opacity: 0.2;
         }
@@ -110,13 +110,18 @@
 
         .timeseries_btn {
             position: fixed;
-            bottom:10%;
-            left:45%;
+            width: 80px;
+            top: 10%;
+            left: 50%;
+            margin-left: -50px;
             color:#fafafa;
-            background-color: #444;
-            padding:10px;
+            background-color: #666;
+            padding:5px;
             display: none;
-            opacity: 0.9;
+            opacity: 0.8;
+            text-align: center;
+            pointer-events: none;
+            cursor: pointer;
         }
 
         #chapter0 {
@@ -143,7 +148,6 @@
 <div id="map"></div>
 <div id="mapInset"></div>
 <div id="story"></div>
-<div class="timeseries_btn" id="timeseries_btn_iraq">Play again</div>
 <div class="timeseries_btn" id="timeseries_btn_kurd">Play again</div>
 
 <script src="./config.js"></script>
@@ -346,7 +350,7 @@ map.on("load", function() {
     scroller
     .setup({
         step: '.step',
-        offset: 0.5,
+        offset: 0.75,
         progress: true
     })
     .onStepEnter(async response => {
