@@ -9,55 +9,14 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
     <script src="https://unpkg.com/intersection-observer@0.12.0/intersection-observer.js"></script>
     <script src="https://unpkg.com/scrollama"></script>
+    <!-- <script src="https://unpkg.com/enter-view"></script> -->
+
+
     <style>
-        body {
-            margin:0;
-            padding:0;
-            font-family: sans-serif;
-        }
         a, a:hover, a:visited {
             color: #0071bc;
         }
-        #map {
-            top:0;
-            height: 100vh;
-            width:100vw;
-            position: fixed;
-        }
-        #mapInset {
-            bottom:50px;
-            right:30px;
-            height: 180px;
-            width:250px;
-            max-width:100%;
-            position: fixed;
-            z-index: 1;
-            opacity: 1;
-            transition: opacity 0.5s ease-in-out;
-            pointer-events: none;
-        }
-        #header {
-            margin: auto;
-            width: 100%;
-            position: relative;
-            z-index: 5;
-        }
-        #header h1, #header h2, #header p {
-            margin: 0;
-            padding: 2vh 2vw;
-            text-align: center;
-        }
-        #footer {
-            width: 100%;
-            min-height: 5vh;
-            padding-top: 2vh;
-            padding-bottom: 2vh;
-            text-align: center;
-            line-height: 25px;
-            font-size: 13px;
-            position: relative;
-            z-index: 5;
-        }
+
         #features {
             padding-top: 10vh;
             padding-bottom: 10vh;
@@ -106,6 +65,7 @@
 
         .step img {
             width: 100%;
+            padding:15px 0px;
         }
 
         .timeseries_btn {
@@ -127,6 +87,9 @@
         #chapter0 {
             padding-top: 70vh;
         }
+        #chapter8 {
+            padding-bottom: 0px;
+        }
 
         @media (max-width: 750px) {
             .centered, .lefty, .righty, .fully {
@@ -141,17 +104,140 @@
             touch-action: unset;
         }
 
+
+
+        #wrapper{
+            position: relative;
+            background-color: #f3f3f3;
+        }
+
+        #story {
+			position: relative;
+			margin: 0 auto;
+            margin-bottom: 100vh;
+		}
+
+        #scroll_graphic {
+			position: -webkit-sticky;
+			position: sticky;
+            /* position: absolute; */
+            top: 0;
+            /* bottom: auto; */
+			width: 100%;
+			/* margin: 0; */
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+			background-color: #8a8a8a;
+			z-index: 0;
+		}
+        #map {
+            top:0;
+            height: 100vh;
+            width:100vw;
+            position: absolute;
+        }
+
+
+
+        /* #scroll_graphic{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: auto;
+            width: 100%;
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+        .is-fixed {
+            position: fixed;
+            top:0;
+            bottom:auto;
+            z-index: 0;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+        .is-bottom {
+            position: absolute;
+            bottom: 0;
+            top: auto;
+        }
+        #map {
+            top:0;
+            height: 100vh;
+            width:100vw;
+            position: absolute;
+        }
+        #story{
+            z-index: 1;
+        } */
         </style>
 </head>
 <body>
+    <section id="intro">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+    
+    <section id="wrapper">
+        <div id="scroll_graphic">
+            <div id="map" ></div>
+        </div>
+        <div id="story"></div>
+        <div class="timeseries_btn" id="timeseries_btn_kurd">Play again</div>
+    </section>
 
-<div id="map"></div>
-<div id="mapInset"></div>
-<div id="story"></div>
-<div class="timeseries_btn" id="timeseries_btn_kurd">Play again</div>
-
+    <section id="outro">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+    
 <script src="./config.js"></script>
 <script>
+var container = document.getElementById("wrapper");
+var graphic = document.getElementById("scroll_graphic");
+
+// enterView({
+//     selector: '#story',
+//     offset:1,
+//     enter: function(el) {
+//         console.log("Enter!")
+//         document.getElementById("scroll_graphic").style.position = "sticky";
+//         document.getElementById("scroll_graphic").style.top = "0";
+//         document.getElementById("scroll_graphic").style.bottom = "auto";
+//         // document.getElementById("scroll_graphic").classList.remove("start_position");
+//         // document.getElementById("scroll_graphic").classList.add("is-fixed");
+//         // document.getElementById("scroll_graphic").classList.remove("is-bottom");
+//     },
+//     exit: function(el) {
+//         console.log("Exit!")
+//         document.getElementById("scroll_graphic").style.position = "absolute";
+//         document.getElementById("scroll_graphic").style.top = "auto";
+//         document.getElementById("scroll_graphic").style.bottom = "0";
+
+//         // document.getElementById("scroll_graphic").classList.remove("is-fixed");
+//         // document.getElementById("scroll_graphic").classList.add("is-bottom");
+//     },
+// });
+
+
+// function handleContainerEnter() {
+// 	// response = { direction }
+
+// 	// sticky the graphic
+//     graphic.classList.add("is-fixed");
+//     graphic.classList.remove("is-bottom");
+// }
+
+// function handleContainerExit() {
+// 	// response = { direction }
+
+// 	// un-sticky the graphic, and pin to top/bottom of container
+//     graphic.classList.add("is-bottom");
+//     graphic.classList.remove("is-fixed");
+// }
+
 var initLoad = true;
 var layerTypes = {
     'fill': ['fill-opacity'],
@@ -191,32 +277,6 @@ function setLayerOpacity(layer) {
 var story = document.getElementById('story');
 var features = document.createElement('div');
 features.setAttribute('id', 'features');
-
-var header = document.createElement('div');
-
-if (config.title) {
-    var titleText = document.createElement('h1');
-    titleText.innerText = config.title;
-    header.appendChild(titleText);
-}
-
-if (config.subtitle) {
-    var subtitleText = document.createElement('h2');
-    subtitleText.innerText = config.subtitle;
-    header.appendChild(subtitleText);
-}
-
-if (config.byline) {
-    var bylineText = document.createElement('p');
-    bylineText.innerText = config.byline;
-    header.appendChild(bylineText);
-}
-
-if (header.innerText.length > 0) {
-    header.classList.add(config.theme);
-    header.setAttribute('id', 'header');
-    story.appendChild(header);
-}
 
 config.chapters.forEach((record, idx) => {
     var container = document.createElement('div');
@@ -293,23 +353,6 @@ var map = new mapboxgl.Map({
     projection: config.projection
 });
 
-// Create a inset map if enabled in config.js
-// if (config.inset) {
-//  var insetMap = new mapboxgl.Map({
-//     container: 'mapInset', // container id
-//     style: 'mapbox://styles/mapbox/dark-v10', //hosted style id
-//     center: config.chapters[0].location.center,
-//     // Hardcode above center value if you want insetMap to be static.
-//     zoom: 3, // starting zoom
-//     hash: false,
-//     interactive: false,
-//     attributionControl: false,
-//     //Future: Once official mapbox-gl-js has globe view enabled,
-//     //insetmap can be a globe with the following parameter.
-//     //projection: 'globe'
-//   });
-// }
-
 if (config.showMarkers) {
     var marker = new mapboxgl.Marker({ color: config.markerColor });
     marker.setLngLat(config.chapters[0].location.center).addTo(map);
@@ -317,8 +360,6 @@ if (config.showMarkers) {
 
 // instantiate the scrollama
 var scroller = scrollama();
-
-
 map.on("load", function() {
     if (config.use3dTerrain) {
         map.addSource('mapbox-dem', {
@@ -341,12 +382,6 @@ map.on("load", function() {
             }
         });
     };
-
-    // As the map moves, grab and update bounds in inset map.
-    if (config.inset) {
-    map.on('move', getInsetBounds);
-    }
-    // setup the instance, pass callback functions
     scroller
     .setup({
         step: '.step',
@@ -357,17 +392,6 @@ map.on("load", function() {
         var chapter = config.chapters.find(chap => chap.id === response.element.id);
         response.element.classList.add('active');
         map[chapter.mapAnimation || 'flyTo'](chapter.location);
-        // Incase you do not want to have a dynamic inset map,
-        // rather want to keep it a static view but still change the
-        // bbox as main map move: comment out the below if section.
-        // if (config.inset) {
-        //   if (chapter.location.zoom < 5) {
-        //     insetMap.flyTo({center: chapter.location.center, zoom: 0});
-        //   }
-        //   else {
-        //     insetMap.flyTo({center: chapter.location.center, zoom: 3});
-        //   }
-        // }
         if (config.showMarkers) {
             marker.setLngLat(chapter.location.center);
         }
@@ -396,87 +420,6 @@ map.on("load", function() {
         }
     });
 });
-
-//Helper functions for insetmap
-// function getInsetBounds() {
-//             let bounds = map.getBounds();
-
-//             let boundsJson = {
-//                 "type": "FeatureCollection",
-//                 "features": [{
-//                     "type": "Feature",
-//                     "properties": {},
-//                     "geometry": {
-//                         "type": "Polygon",
-//                         "coordinates": [
-//                             [
-//                                 [
-//                                     bounds._sw.lng,
-//                                     bounds._sw.lat
-//                                 ],
-//                                 [
-//                                     bounds._ne.lng,
-//                                     bounds._sw.lat
-//                                 ],
-//                                 [
-//                                     bounds._ne.lng,
-//                                     bounds._ne.lat
-//                                 ],
-//                                 [
-//                                     bounds._sw.lng,
-//                                     bounds._ne.lat
-//                                 ],
-//                                 [
-//                                     bounds._sw.lng,
-//                                     bounds._sw.lat
-//                                 ]
-//                             ]
-//                         ]
-//                     }
-//                 }]
-//             }
-
-//             if (initLoad) {
-//                 addInsetLayer(boundsJson);
-//                 initLoad = false;
-//             } else {
-//                 updateInsetLayer(boundsJson);
-//             }
-
-//         }
-
-// function addInsetLayer(bounds) {
-//     insetMap.addSource('boundsSource', {
-//         'type': 'geojson',
-//         'data': bounds
-//     });
-
-//     insetMap.addLayer({
-//         'id': 'boundsLayer',
-//         'type': 'fill',
-//         'source': 'boundsSource', // reference the data source
-//         'layout': {},
-//         'paint': {
-//             'fill-color': '#fff', // blue color fill
-//             'fill-opacity': 0.2
-//         }
-//     });
-//     // // Add a black outline around the polygon.
-//     insetMap.addLayer({
-//         'id': 'outlineLayer',
-//         'type': 'line',
-//         'source': 'boundsSource',
-//         'layout': {},
-//         'paint': {
-//             'line-color': '#000',
-//             'line-width': 1
-//         }
-//     });
-// }
-
-// function updateInsetLayer(bounds) {
-//     insetMap.getSource('boundsSource').setData(bounds);
-// }
 
 // setup resize event
 window.addEventListener('resize', scroller.resize);

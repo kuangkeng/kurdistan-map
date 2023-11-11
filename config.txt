@@ -187,7 +187,7 @@ var config = {
             id: 'chapter7',
             alignment: 'center',
             hidden: false,
-            image: 'https://uploads-ssl.webflow.com/6278bd345772f8c6447b74e1/63203cb6cd7545689dc55358_chart-flaring.png',
+            image: 'https://uploads-ssl.webflow.com/6278bd345772f8c6447b74e1/63257f9acd9a5551ec13a107_chart-flaring.png',
             description: 'As of May 2022, flaring levels have begun to creep back up again.Our findings project that flaring will increase, not decrease, relative to 2021 — in violation of the commitment made by the KRG.',
             location: {
                 center: [44.40172, 34.53583],

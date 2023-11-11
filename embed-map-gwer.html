@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <style>
+        body {
+            font-family: 'Ubuntu';font-size: 28px;
+            color:#ffffff;
+        }
+        .title{
+            margin-bottom: 10px;
+        }
+        .subtitle{
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        #legend {
+            position:absolute;
+            bottom:10%;
+            right:12%;
+            width:230px;
+            height:auto;
+            z-index: 100;
+            padding:15px;
+            background-color: #4b4b4b;
+        }
+        .color_col{
+            width:30%
+        }
+        .text_col {
+            width:70%
+        }
+        .column {
+            float: left;
+        }
+        .colorbox{
+            margin:3px;
+            width: 80%;
+            height: 30px;
+            opacity:0.4;
+        }
+        .dotbox{
+            margin:3px;
+            width: 80%;
+            height: 30px;
+            text-align: center;
+        }
+        .textbox {
+            margin:3px;
+            height: 30px;
+            font-size: 25px;
+        }
+        #flare_text {
+            font-size: 23px;
+            line-height:30px;
+        }
+        #fee5d9{
+            background-color: #fee5d9;
+        }
+        #fcae91{
+            background-color: #fcae91;
+        }
+        #fb6a4a{
+            background-color: #fb6a4a;
+        }
+        #de2d26{
+            background-color: #de2d26;
+        }
+        #a50f15{
+            background-color: #a50f15;
+        }
+    </style>
+</head>
+
+
+
+<iframe width='100%' height='900px' src="https://api.mapbox.com/styles/v1/kuangkeng/cl833fcy3008815ml4xbmj6id.html?title=false&access_token=pk.eyJ1Ijoia3VhbmdrZW5nIiwiYSI6ImNsNXVibXhrNzBlNzUzamxhaHlrbHJsemcifQ.pi3jb5qDip_6YHTMDxDO5Q&zoomwheel=false#11.02/36.1288/43.8691" title="Monochrome" style="border:none;"></iframe>
+<div id="legend">
+    <div class="row">
+        <div class="title">Average PM2.5 readings</div>
+        <div class="subtitle">Micrograms of fine particles per cubic meter, µg/m<sup>3</sup></div>
+    </div>
+    <div class="row">
+        <div class="column color_col">
+            <div class="colorbox" id="fee5d9"></div>
+            <div class="colorbox" id="fcae91"></div>
+            <div class="colorbox" id="fb6a4a"></div>
+            <div class="colorbox" id="de2d26"></div>
+            <div class="colorbox" id="a50f15"></div>
+            <div class="dotbox" id="ffe438">
+                <svg class="inline-circle" height="20" width="20">
+                    <circle
+                      style="fill:#ffe438;stroke:#ffe438;stroke-miterlimit:10;"
+                      cx="10"
+                      cy="10"
+                      r="8"
+                    />
+                  </svg>
+            </div>
+        </div>
+        <div class="column text_col">
+            <div class="textbox">15.1 - 25</div>
+            <div class="textbox">25.1 - 30</div>
+            <div class="textbox">31.1 - 35</div>
+            <div class="textbox">35.1 - 40</div>
+            <div class="textbox">41.1 - 50</div>
+            <div class="textbox" id="flare_text">Flare locations</div>
+        </div>
+    </div>
+</div>
+</html>
